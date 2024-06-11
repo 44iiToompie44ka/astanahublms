@@ -1,14 +1,13 @@
-
-
+import 'package:astanahublmss/screens/survey_screen/survey_main_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:astanahublmss/root/widets/drawer.dart';
 import 'package:astanahublmss/screens/course_catalog_screen/course_catalog_screen.dart';
 import 'package:astanahublmss/screens/meet_up_screen/meet_up_screen.dart';
 import 'package:astanahublmss/screens/news_screen/news_screen.dart';
 import 'package:astanahublmss/screens/settings/settings_screen.dart';
-import 'package:flutter/material.dart';
 
 class RootScreen extends StatefulWidget {
-  const RootScreen({super.key});
+  const RootScreen({Key? key}) : super(key: key);
 
   @override
   _RootScreenState createState() => _RootScreenState();
@@ -18,20 +17,28 @@ class _RootScreenState extends State<RootScreen> {
   int _selectedIndex = 0;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _navigateToAnotherScreen(); 
+    });
+  }
 
+  void _navigateToAnotherScreen() {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const SurveyMainScreen(), 
+      ),
+    );
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
     const CourseCatalogScreen(),
     const NewsScreen(),
     const MeetupsScreen(),
-    SettingsScreen(),
-    SettingsScreen(),
-    SettingsScreen(),
-    SettingsScreen(),
-
+   const SurveyMainScreen(),
+    const SurveyMainScreen(),
+   const SurveyMainScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -60,7 +67,7 @@ class _RootScreenState extends State<RootScreen> {
       drawer: MainDrawer(
         onTap: (index) {
           _onItemTapped(index);
-          Navigator.pop(context); 
+          Navigator.pop(context);
         },
         selectedIndex: _selectedIndex,
       ),

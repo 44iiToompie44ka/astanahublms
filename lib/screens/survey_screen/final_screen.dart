@@ -13,7 +13,7 @@ class FinalScreen extends SurveyQuestion {
     TextEditingController otherController,
     ConfettiController controllerCenter,
   ) {
-    return Column(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

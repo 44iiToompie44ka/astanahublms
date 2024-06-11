@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		Ro9E6g1wiqAHwYPm95I6dGG5QjI=
+		ke29Vz9bOF9PH/EP2gnYjsufHa8=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		h6sdADQT85ZenJpIf44rdvh+ag8=
+		sKfuWlHoNZLgdMsfrbTBSSkHGAI=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -27,6 +27,10 @@
 		<key>flutter_assets/assets/logoAppBar.png</key>
 		<data>
 		LnZqzHY9OypNW2PgrPCtg5rg9tg=
+		</data>
+		<key>flutter_assets/assets/robot.png</key>
+		<data>
+		T1UNRePPCDCLu+zjWKxUAEf4t7k=
 		</data>
 		<key>flutter_assets/assets/speech_bubble.png</key>
 		<data>
@@ -82,7 +86,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		beaigsRVJpSiVhpcR5I/mJqZI/A=
+		oOnGa6uz/jMWAGhwYNekHLqg4X4=
 		</data>
 		<key>flutter_assets/packages/akar_icons_flutter/fonts/AkarIcons.ttf</key>
 		<data>
@@ -103,14 +107,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GPw9bMfw03t/DpGkwernhhmQh8VKy6yY3wNry9u8dPU=
+			FzohdAPRWrM26ZFc/duuBRpwZd6FP+0tfnt7VUlJe7A=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4GtZsh8yBiFETtu/baMz9qgv/NbQoz+J9FyhHUrd5+g=
+			fsgiuu9MvJBiUQKIEIsvuPNz1RIGoM2rLbBmGKQ3KJ4=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -132,6 +136,13 @@
 			<key>hash2</key>
 			<data>
 			MSrqjjAfTwN2rJxm+89XUtn+qlEAuhkvXI+fE7myJ28=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/robot.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VN6Vb8srRuZzT0TdJWjv4rqeHXz4wZWrwG9di6Tl1N0=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/speech_bubble.png</key>
@@ -229,7 +240,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jVZUiCFnqnYMdX8P0Mtecxpd9ZKmmc71fdXSRGzqxeU=
+			PRBgqmIyBWymEJqPa8de7AEl4voZR/4FIfQJ991kxqU=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/akar_icons_flutter/fonts/AkarIcons.ttf</key>

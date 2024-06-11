@@ -17,22 +17,19 @@ class Question8 extends SurveyQuestion {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const SpeechBubbleWidget(text: "Спасибо за участие в опросе! Ваши ответы будут учтены",),
-        Align(
-          alignment: Alignment.topCenter,
-          child: ConfettiWidget(
-            confettiController: controllerCenter,
-            blastDirectionality: BlastDirectionality.explosive,
-            shouldLoop: true,
-            colors: const [
-              Colors.red,
-              Colors.blue,
-              Colors.green,
-              Colors.yellow,
-              Colors.purple,
-              Colors.orange,
-            ],
-          ),
+        const SpeechBubbleWidget(text: "Благодарим за прохождение опроса! Ваши ответы будут учтены.",),
+        ConfettiWidget(
+          confettiController: controllerCenter,
+          blastDirectionality: BlastDirectionality.explosive,
+          shouldLoop: true,
+          colors: const [
+            Colors.red,
+            Colors.blue,
+            Colors.green,
+            Colors.yellow,
+            Colors.purple,
+            Colors.orange,
+          ],
         ),
         const SizedBox(height: 100),
         ElevatedButton(

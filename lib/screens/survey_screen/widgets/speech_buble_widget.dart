@@ -1,9 +1,40 @@
 import 'package:flutter/material.dart';
 
-class SpeechBubbleWidget extends StatelessWidget {
+class SpeechBubbleWidget extends StatefulWidget {
   final String text;
 
-  const SpeechBubbleWidget({super.key, required this.text});
+  const SpeechBubbleWidget({Key? key, required this.text}) : super(key: key);
+
+  @override
+  _SpeechBubbleWidgetState createState() => _SpeechBubbleWidgetState();
+}
+
+class _SpeechBubbleWidgetState extends State<SpeechBubbleWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+        AnimationController(duration: Duration(seconds: 2), vsync: this);
+    _animation = Tween<double>(begin: -5, end: 5).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeInOut,
+      ),
+    )..addListener(() {
+        setState(() {});
+      });
+    _controller.repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +59,7 @@ class SpeechBubbleWidget extends StatelessWidget {
                   child: SizedBox(
                     width: 275,
                     child: Text(
-                      text,
+                      widget.text,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 20,
@@ -39,17 +70,25 @@ class SpeechBubbleWidget extends StatelessWidget {
                 ),
               ),
             ),
-            
           ],
         ),
-       Padding(
-         padding: const EdgeInsets.only(left: 140.0),
-         child: Image.asset(
-                'assets/robot.png',
-                width: 350,
-                height: 225,
-              ),
-       ),
+        AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            return Transform.translate(
+              offset: Offset(0, _animation.value),
+              child: child,
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(left: 140.0),
+            child: Image.asset(
+              'assets/robot.png',
+              width: 350,
+              height: 225,
+            ),
+          ),
+        ),
       ],
     );
   }

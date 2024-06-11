@@ -1,4 +1,3 @@
-import 'package:astanahublmss/screens/survey_screen/final_screen.dart';
 import 'package:astanahublmss/screens/survey_screen/questions/question1.dart';
 import 'package:astanahublmss/screens/survey_screen/questions/question2.dart';
 import 'package:astanahublmss/screens/survey_screen/questions/question3.dart';
@@ -35,8 +34,6 @@ class _SurveyMainScreenState extends State<SurveyMainScreen> {
     Question7(),
     Question8(),
     Question9(),
-
-    FinalScreen(),
   ];
 
   @override

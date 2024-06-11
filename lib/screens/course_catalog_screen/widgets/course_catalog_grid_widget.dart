@@ -27,7 +27,6 @@ class CourseCatalogWidget extends StatelessWidget{
     );
   }
 }
-
 class CourseCatalogItem extends StatelessWidget {
   final String type;
   final String imgurl;
@@ -46,6 +45,7 @@ class CourseCatalogItem extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: Container(
+        height: 250, // Set a fixed height for the container
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -56,75 +56,70 @@ class CourseCatalogItem extends StatelessWidget {
             end: Alignment.bottomRight,
           ),
         ),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            double imageHeight = constraints.maxHeight - 57;
-            return Column(
+        child: Column(
+          children: [
+            Stack(
               children: [
-                Stack(
-                  children: [
-                    Image.network(
-                      imgurl,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: imageHeight,
-                      colorBlendMode: BlendMode.darken,
-                      color: Colors.black38,
-                    ),
-                    Positioned(
-                      left: 15,
-                      top: 10,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white, width: 1.5),
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: Text(
-                            type,
-                            style: const TextStyle(color: Colors.white, fontSize: 12),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Positioned(
-                      left: 15,
-                      top: 40,
-                      child: Text(
-                        title,
-                        style: const TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                    ),
-                  ],
+                Image.network(
+                  imgurl,
+                  fit: BoxFit.cover,
+                  width: 200,
+                  height: 110, // Set a fixed height for the image
+                  colorBlendMode: BlendMode.darken,
+                  color: Colors.black38,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CoursePreviewScreen(type: type, imgurl: imgurl, title: title, text: text))),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.5),
-                            child: Text(
-                              'Подробнее',
-                              style: TextStyle(color: Colors.white, fontSize: 14),
-                            ),
-                          ),
-                        ),
+                Positioned(
+                  left: 15,
+                  top: 10,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white, width: 1.5),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Text(
+                        type,
+                        style: const TextStyle(color: Colors.white, fontSize: 12),
                       ),
-                    ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 15,
+                  top: 40,
+                  child: Text(
+                    title,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
                   ),
                 ),
               ],
-            );
-          },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CoursePreviewScreen(type: type, imgurl: imgurl, title: title, text: text))),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: Colors.white),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(4.5),
+                        child: Text(
+                          'Подробнее',
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

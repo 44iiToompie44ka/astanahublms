@@ -1,7 +1,8 @@
 import 'package:astanahublmss/screens/survey_screen/widgets/speech_buble_widget.dart';
-import 'package:astanahublmss/screens/survey_screen/widgets/survey_question.dart';
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
+import '../utils.dart'; // Import the utils file
+import '../widgets/survey_question.dart';
 
 class Question9 extends SurveyQuestion {
   @override
@@ -13,36 +14,44 @@ class Question9 extends SurveyQuestion {
     TextEditingController otherController,
     ConfettiController controllerCenter,
   ) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const SpeechBubbleWidget(text: "Мы подобрали для вас курсы, опираясь на ваши ответы!",),
-        Align(
-          alignment: Alignment.topCenter,
-          child: ConfettiWidget(
-            confettiController: controllerCenter,
-            blastDirectionality: BlastDirectionality.explosive,
-            shouldLoop: true,
-            colors: const [
-              Colors.red,
-              Colors.blue,
-              Colors.green,
-              Colors.yellow,
-              Colors.purple,
-              Colors.orange,
-            ],
+    List<Widget> suggestions = getCourseSuggestions(selectedOptions);
+
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          if (suggestions.isNotEmpty)
+          const SpeechBubbleWidget(
+            text: "Мы подобрали для вас курсы, опираясь на ваши ответы!",
           ),
-        ),
-        const SizedBox(height: 100),
-        ElevatedButton(
-          onPressed: nextQuestion,
-          child: const Text(
-            "Далее",
-            textAlign: TextAlign.center,
+          if (suggestions.isEmpty)
+          const SpeechBubbleWidget(
+            text: "Мы долго искали, но не смогли подобрать для вас курсы :(",
           ),
-        ),
-      ],
+          const SizedBox(height: 20),
+        if (suggestions.isNotEmpty)                  
+          Container(
+              margin: const EdgeInsets.all(4),
+              height: 500,
+              child: GridView.count(
+              primary: false,
+              padding: const EdgeInsets.all(20),
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 2,
+              children: suggestions,
+              ),
+            ),
+          ElevatedButton(
+            onPressed: nextQuestion,
+            child: const Text(
+            "В меню",
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

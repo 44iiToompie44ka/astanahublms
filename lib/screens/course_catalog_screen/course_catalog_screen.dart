@@ -3,7 +3,6 @@ import 'package:astanahublmss/screens/course_catalog_screen/widgets/course_catal
 import 'package:astanahublmss/screens/course_catalog_screen/widgets/for_who_widget.dart';
 import 'package:astanahublmss/screens/course_catalog_screen/widgets/friend_widget.dart';
 import 'package:astanahublmss/screens/course_catalog_screen/widgets/image_carousel.dart';
-import 'package:astanahublmss/screens/survey_screen/survey_main_screen.dart';
 import 'package:flutter/material.dart';
 
 class CourseCatalogScreen extends StatefulWidget {
@@ -134,40 +133,7 @@ class _CourseCatalogScreenState extends State<CourseCatalogScreen> {
             Theme.of(context).primaryColor, 
             Theme.of(context).highlightColor
         ])),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(children: [
-              const Text('Помогите нам улучшить наш сервис\nПройдя краткий опрос!', textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: Colors.white),)
-            ,
-            Row(
-              children: [
-                
-                ElevatedButton(onPressed:() {
-                  setState(() {
-                    showSurvey = false;
-                  });
-                  
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SurveyMainScreen()));
-                },
-                
-                child: const Text('Пройти')), SizedBox(width: 10,),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      showSurvey = false;
-                    });
-                  },
-                  child: const Text(
-                    'Пропустить',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                )
-
-              ],
-            )
-            
-            ],),
-          ),
+          
 
         
         

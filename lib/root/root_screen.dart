@@ -19,18 +19,10 @@ class _RootScreenState extends State<RootScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      _navigateToAnotherScreen(); 
-    });
+    
   }
 
-  void _navigateToAnotherScreen() {
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (context) => const SurveyMainScreen(), 
-      ),
-    );
-  }
+  
 
   static final List<Widget> _widgetOptions = <Widget>[
     const CourseCatalogScreen(),

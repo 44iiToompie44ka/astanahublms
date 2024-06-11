@@ -1,6 +1,6 @@
 import 'package:astanahublmss/root/themes.dart';
+import 'package:astanahublmss/screens/survey_screen/survey_main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:astanahublmss/root/root_screen.dart';
 
 void main() => runApp(const MainApp());
 
@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appTheme, 
-      home: const RootScreen(),
+      home: const SurveyMainScreen(),
     );
   }
 }

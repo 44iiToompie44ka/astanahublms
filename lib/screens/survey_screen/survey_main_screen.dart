@@ -1,3 +1,4 @@
+import 'package:astanahublmss/root/root_screen.dart';
 import 'package:astanahublmss/screens/survey_screen/questions/question1.dart';
 import 'package:astanahublmss/screens/survey_screen/questions/question2.dart';
 import 'package:astanahublmss/screens/survey_screen/questions/question3.dart';
@@ -57,8 +58,10 @@ class _SurveyMainScreenState extends State<SurveyMainScreen> {
     } else {
       print("Selected Options: $_selectedOptions");
       print("Other: ${_otherController.text}");
-      Navigator.pop(context);
-    }
+Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const RootScreen()),
+            );    }
   }
 
   void _toggleOption(String option) {
